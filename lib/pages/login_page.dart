@@ -30,98 +30,67 @@ class _LoginPageState extends State<LoginPage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Image.asset('assets/images/logo.png'),
-            SizedBox(
-              child: TextField(
-                  controller: _usernameController,
-                  decoration: InputDecoration(
-                    border: const OutlineInputBorder(),
-                    labelText: 'Username',
-                    suffixIcon: IconButton(
-                      onPressed: () => _usernameController.clear(),
-                      icon: const Icon(Icons.clear),
-                    ),
-                  )),
-            ),
-            SizedBox(
-              child: TextField(
-                  controller: _passwordController,
-                  obscureText: _passwordVisible,
-                  decoration: InputDecoration(
-                      border: OutlineInputBorder(),
-                      labelText: 'Password',
-                      suffixIcon: Row(
-                        mainAxisAlignment:
-                            MainAxisAlignment.spaceBetween, // added line
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
-                          IconButton(
-                            onPressed: () => _passwordController.clear(),
-                            icon: const Icon(Icons.clear),
-                          )
-                        ], //
-                      ))),
-            ),
-            MaterialButton(
-              onPressed: login,
-              child: const Text('Login'),
-            )
+            Expanded(flex: 6, child: Image.asset('assets/images/logo.png')),
+            Expanded(
+                flex: 4,
+                child: Wrap(
+                    alignment: WrapAlignment.center,
+                    runSpacing: 10,
+                    children: [
+                      SizedBox(
+                        child: TextField(
+                            controller: _usernameController,
+                            style: const TextStyle(color: Colors.orangeAccent),
+                            decoration: const InputDecoration(
+                              border: OutlineInputBorder(),
+                              labelText: 'Username',
+                              labelStyle: TextStyle(color: Colors.orange),
+                              // suffixIcon: IconButton(
+                              //   onPressed: () => _usernameController.clear(),
+                              //   icon: const Icon(Icons.clear),
+                              // ),
+                            )),
+                      ),
+                      SizedBox(
+                        child: TextField(
+                            controller: _passwordController,
+                            obscureText: _passwordVisible,
+                            style: const TextStyle(color: Colors.orangeAccent),
+                            decoration: const InputDecoration(
+                              border: OutlineInputBorder(),
+                              labelText: 'Password',
+                              labelStyle: TextStyle(color: Colors.orange),
+                              // suffixIcon: Row(
+                              //   mainAxisAlignment:
+                              //       MainAxisAlignment.spaceBetween,
+                              //   mainAxisSize: MainAxisSize.min,
+                              //   children: [
+                              //     IconButton(
+                              //       onPressed: () =>
+                              //           _passwordController.clear(),
+                              //       icon: const Icon(Icons.clear),
+                              //     )
+                              //   ],
+                              // )
+                            )),
+                      ),
+                      MaterialButton(
+                        onPressed: login,
+                        color: Colors.orangeAccent,
+                        height: 50,
+                        minWidth: double.infinity,
+                        child: const Text(
+                          'LOGIN',
+                          style: TextStyle(
+                              fontSize: 18,
+                              fontWeight: FontWeight.w500,
+                              color: Colors.white),
+                        ),
+                      )
+                    ])),
           ],
         ),
       ),
     );
   }
 }
-
-                  // IconButton(
-                  //     icon: Icon(_passwordVisible
-                  //         ? Icons.visibility
-                  //         : Icons.visibility_off),
-                  //     onPressed: () {
-                  //       setState(
-                  //         () {
-                  //           _passwordVisible = !_passwordVisible;
-                  //         },
-                  //       );
-                  //     },
-                  //   ),
-
-
-// class LoginPage extends StatelessWidget {
-//   const LoginPage({Key? key}) : super(key: key);
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return Scaffold(
-//       appBar: AppBar(
-//         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-//         title: const Text("Login"),
-//       ),
-//       body: const Padding(
-//         padding: EdgeInsets.all(20.0),
-//         child: Column(
-//           mainAxisAlignment: MainAxisAlignment.center,
-//           children: [
-//             Text('LOGIN'),
-//             SizedBox(
-//                 child: TextField(
-//               decoration: InputDecoration(
-//                 border: OutlineInputBorder(),
-//                 labelText: 'Username',
-//               ),
-//             )),
-//             SizedBox(
-//                 child: TextField(
-//               obscureText: true,
-//               decoration: InputDecoration(
-//                 border: OutlineInputBorder(),
-//                 labelText: 'Password',
-//               ),
-//             ))
-//           ],
-//         ),
-//       ),
-//     );
-//     ;
-//   }
-// }
